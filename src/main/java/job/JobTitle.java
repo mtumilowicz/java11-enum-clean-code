@@ -1,3 +1,5 @@
+package job;
+
 import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableSet;
 
@@ -33,6 +35,10 @@ public enum JobTitle {
 
     public static Predicate<JobTitle> isOperational() {
         return title -> OPERATIONAL.contains(title);
+    }
+    
+    public static Predicate<JobTitle> isBusiness() {
+        return isAdministrative().or(isOperational());
     }
 
     public static Predicate<JobTitle> isTechnical() {
