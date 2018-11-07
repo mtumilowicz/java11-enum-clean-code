@@ -1,6 +1,5 @@
 package job;
 
-import com.google.common.collect.ImmutableCollection;
 import com.google.common.collect.ImmutableSet;
 
 import java.util.Arrays;
@@ -20,15 +19,6 @@ public enum JobTitle {
     private static ImmutableSet<JobTitle> OPERATIONAL =
             ImmutableSet.of(MANAGER, OFFICER);
     
-    private static ImmutableCollection<JobTitle> TECHNICAL =
-            ImmutableSet.of(DEVELOPER, IMPLEMENTATION_OFFICER);
-    
-    private static ImmutableCollection<JobTitle> PART_TIME =
-            ImmutableSet.of(DEVELOPER, INTERN);
-
-    private static ImmutableCollection<JobTitle> CLIENT_CONTACTS =
-            ImmutableSet.of(CONSULTANT, IMPLEMENTATION_OFFICER);
-    
     public static Predicate<JobTitle> isAdministrative() {
         return title -> ADMINISTRATION.contains(title);
     }
@@ -39,18 +29,6 @@ public enum JobTitle {
     
     public static Predicate<JobTitle> isBusiness() {
         return isAdministrative().or(isOperational());
-    }
-
-    public static Predicate<JobTitle> isTechnical() {
-        return title -> TECHNICAL.contains(title);
-    }
-
-    public static Predicate<JobTitle> isPartTime() {
-        return title -> PART_TIME.contains(title);
-    }
-
-    public static Predicate<JobTitle> isClientContact() {
-        return title -> CLIENT_CONTACTS.contains(title);
     }
     
     public static Stream<JobTitle> stream() {
