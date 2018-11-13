@@ -1,4 +1,6 @@
-# java11-enum-clean-code
+[![Build Status](https://travis-ci.com/mtumilowicz/java11-enum-clean-code.svg?branch=master)](https://travis-ci.com/mtumilowicz/java11-enum-clean-code)
+
+#java11-enum-clean-code
 Overview of how to to construct modern enums using lambda.
 
 # project description
