@@ -19,16 +19,20 @@ public enum JobTitle {
     private static ImmutableSet<JobTitle> OPERATIONAL =
             ImmutableSet.of(MANAGER, OFFICER);
     
-    public static Predicate<JobTitle> isAdministrative() {
-        return title -> ADMINISTRATION.contains(title);
+    public boolean isAdministration() {
+        return ADMINISTRATION.contains(this);
     }
 
-    public static Predicate<JobTitle> isOperational() {
-        return title -> OPERATIONAL.contains(title);
+    public boolean isOperational() {
+        return OPERATIONAL.contains(this);
     }
     
-    public static Predicate<JobTitle> isBusiness() {
-        return isAdministrative().or(isOperational());
+    public static Predicate<JobTitle> administration() {
+        return JobTitle::isAdministration;
+    }
+
+    public static Predicate<JobTitle> operational() {
+        return JobTitle::isOperational;
     }
     
     public static Stream<JobTitle> stream() {
