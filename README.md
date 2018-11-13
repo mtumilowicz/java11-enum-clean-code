@@ -2,7 +2,16 @@
 Overview of how to to construct modern enums using lambda.
 
 # project description
-We have enum `JobTitle` and groups:
+We have enum `JobTitle` 
+
+```
+public enum JobTitle {
+    PRESIDENT, VICE_PRESIDENT, OFFICER, MANAGER, DEVELOPER,
+    CONSULTANT, IMPLEMENTATION_OFFICER, INTERN;
+}
+```
+
+and groups:
 * `ADMINISTRATION` = `PRESIDENT`, `VICE_PRESIDENT`
 * `OPERATIONAL` = `MANAGER`, `OFFICER`
 
