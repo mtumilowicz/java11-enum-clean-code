@@ -14,8 +14,16 @@ public enum JobTitle {
 ```
 
 and groups:
-* `ADMINISTRATION` = `PRESIDENT`, `VICE_PRESIDENT`
-* `OPERATIONAL` = `MANAGER`, `OFFICER`
+* administration:
+    ```
+    private static ImmutableSet<JobTitle> ADMINISTRATION =
+                ImmutableSet.of(PRESIDENT, VICE_PRESIDENT);
+    ```
+* operational:
+    ```
+    private static ImmutableSet<JobTitle> OPERATIONAL =
+            ImmutableSet.of(MANAGER, OFFICER);    
+    ```
 
 * it is a good practice to provide static methods that return predicates:
     ```
