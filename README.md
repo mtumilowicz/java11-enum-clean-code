@@ -3,6 +3,63 @@
 # java11-enum-clean-code
 Overview of how to to construct modern enums using lambda.
 
+# enum compliation
+* https://stackoverflow.com/questions/32354107/how-are-enums-internally-represented-in-java
+* only syntactic sugar
+
+```
+public enum Ordinals {
+    FIRST("st"),
+    SECOND("nd"),
+    THIRD("rd");
+    private String notation;
+    private Ordinals(String notation) {
+        this.notation = notation;
+    }
+    public String getNotation() {
+        return notation;
+    }
+}
+```
+
+```
+public final class Ordinals extends java.lang.Enum<Ordinals> {
+  public static final Ordinals FIRST;
+
+  public static final Ordinals SECOND;
+
+  public static final Ordinals THIRD;
+
+  private String notation;
+
+  private static final Ordinals[] $VALUES;
+
+  public static Ordinals[] values() {
+      return $VALUES.clone();
+  }
+
+  public static Ordinals valueOf(String name) {
+      return (Ordinals) Enum.valueOf(Ordinals.class, name);
+  }
+
+  private Ordinals(String name, int ordinal, String notation) {
+      super(name, ordinal);
+      this.notation = notation
+  }
+
+  static {
+      FIRST = new Ordinals("FIRST", 0, "st");
+      SECOND = new Ordinals("SECOND", 1, "nd");
+      THIRD = new Ordinals("THIRD", 2, "rd");
+      Ordinals[] $VALUES = new Ordinals[3];
+      $VALUES[0] = FIRST;
+      $VALUES[1] = SECOND;
+      $VALUES[2] = THIRD;
+      Ordinals.$VALUES = $VALUES;
+  }
+}
+```
+
 # project description
 We have enum `JobTitle` 
 
